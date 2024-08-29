@@ -1,55 +1,32 @@
-package exercicio02;
+package EXERCICIO02;
 
-/**
- * 2 - Defina uma classe Celular com atributos como marca, modelo,
- * e capacidadeBateria.
- * Adicione métodos para ligar e desligar o celular.
- */
 public class Celular {
-    private String marca;
-    private String modelo;
-    private String capacidadeBateria;
-    private Boolean ligado = false;
 
-    public Celular(String marca, String modelo, String capacidadeBateria) {
+    public String marca;
+    public String modelo;
+    public Integer capacidadeBateria;
+    public Integer cargaBateria;
+
+    public Celular(String marca, String modelo, Integer capacidadeBateria, Integer cargaBateria) {
         this.marca = marca;
         this.modelo = modelo;
         this.capacidadeBateria = capacidadeBateria;
+        this.cargaBateria = cargaBateria;
     }
 
-    public String getMarca() {
-        return marca;
+    public void ligarCelular() {
+        if (cargaBateria <= 0) {
+
+            System.out.println("Sem bateria!" + "Porcentagem de bateria: " + cargaBateria);
+            System.out.println("Desligando celular!");
+        } else {
+            System.out.println(marca + " " + modelo + " " + capacidadeBateria + " " + "Porcentagem de bateria: " + cargaBateria);
+            System.out.println("Ligando o celular...");
+            System.out.println("Celular Ligado!");
+        }
     }
 
-    public String getModelo() {
-        return modelo;
+        public void desligarCelular() {
+            System.out.println("Desligando celular!");
+        }
     }
-
-    public String getCapacidadeBateria() {
-        return capacidadeBateria;
-    }
-
-    public Boolean getLigado() {
-        return ligado;
-    }
-
-    public void ligar(){
-        System.out.println("Ligando celular...");
-        this.ligado = true;
-    }
-
-    public void desligar(){
-        System.out.println("Desligando celular");
-        this.ligado = false;
-    }
-
-    @Override
-    public String toString() {
-        return "Celular{" +
-                "marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", capacidadeBateria='" + capacidadeBateria + '\'' +
-                ", ligado=" + ligado +
-                '}';
-    }
-}
